@@ -32,44 +32,44 @@ const Index = () => {
   const progress = ((20 * 60 - timeLeft) / (20 * 60)) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-accent via-white to-accent flex items-center justify-center p-4">
-      <div className="max-w-md w-full space-y-6">
-        <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold text-primary">Ваша заявка принята!</h1>
-          <p className="text-sm text-muted-foreground">С вами свяжутся наши специалисты с телефона <span className="font-semibold text-primary">+7 (495) 117-85-67</span></p>
+    <div className="min-h-screen bg-gradient-to-br from-accent via-white to-accent flex items-center justify-center p-4 sm:p-6">
+      <div className="max-w-md w-full space-y-4 sm:space-y-6">
+        <div className="text-center space-y-2 px-2">
+          <h1 className="text-2xl sm:text-3xl font-bold text-primary leading-tight">Ваша заявка принята!</h1>
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">С вами свяжутся наши специалисты с телефона <a href="tel:+74951178567" className="font-semibold text-primary hover:underline whitespace-nowrap">+7 (495) 117-85-67</a></p>
         </div>
 
-        <Card className="p-8 space-y-8">
-          <div className="relative w-64 h-64 mx-auto">
-            <svg className="w-full h-full transform -rotate-90">
+        <Card className="p-4 sm:p-8 space-y-6 sm:space-y-8">
+          <div className="relative w-56 h-56 sm:w-64 sm:h-64 mx-auto">
+            <svg className="w-full h-full transform -rotate-90" viewBox="0 0 256 256">
               <circle
                 cx="128"
                 cy="128"
-                r="120"
+                r="110"
                 stroke="currentColor"
-                strokeWidth="8"
+                strokeWidth="12"
                 fill="none"
                 className="text-accent"
               />
               <circle
                 cx="128"
                 cy="128"
-                r="120"
+                r="110"
                 stroke="currentColor"
-                strokeWidth="8"
+                strokeWidth="12"
                 fill="none"
-                strokeDasharray={2 * Math.PI * 120}
-                strokeDashoffset={2 * Math.PI * 120 * (1 - progress / 100)}
+                strokeDasharray={2 * Math.PI * 110}
+                strokeDashoffset={2 * Math.PI * 110 * (1 - progress / 100)}
                 className="text-primary transition-all duration-1000 ease-linear"
                 strokeLinecap="round"
               />
             </svg>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-6xl font-bold text-primary">
+              <div className="text-center px-2">
+                <div className="text-5xl sm:text-6xl font-bold text-primary">
                   {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
                 </div>
-                <div className="text-sm text-muted-foreground mt-2">
+                <div className="text-xs sm:text-sm text-muted-foreground mt-2">
                   {timeLeft === 0 ? 'Время вышло!' : 'Ожидайте...'}
                 </div>
               </div>
@@ -79,16 +79,16 @@ const Index = () => {
 
         </Card>
 
-        <Card className="p-6 bg-primary/5 border-primary/20">
-          <div className="flex items-start gap-3">
-            <Icon name="Code" size={24} className="text-primary shrink-0 mt-0.5" />
-            <div className="flex-1">
-              <h3 className="font-semibold text-primary mb-1">Установите на свой сайт</h3>
-              <p className="text-sm text-muted-foreground mb-3">
+        <Card className="p-4 sm:p-6 bg-primary/5 border-primary/20">
+          <div className="flex flex-col sm:flex-row items-start gap-3">
+            <Icon name="Code" size={24} className="text-primary shrink-0 mt-0.5 hidden sm:block" />
+            <div className="flex-1 w-full">
+              <h3 className="font-semibold text-primary mb-1 text-sm sm:text-base">Установите на свой сайт</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground mb-3">
                 Добавьте этот таймер на свой сайт одной строкой кода
               </p>
-              <Link to="/install">
-                <Button variant="default" className="gap-2">
+              <Link to="/install" className="block">
+                <Button variant="default" className="gap-2 w-full sm:w-auto">
                   <Icon name="Download" size={16} />
                   Получить код
                 </Button>
