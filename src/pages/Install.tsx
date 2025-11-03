@@ -7,16 +7,39 @@ import Icon from '@/components/ui/icon';
 const Install = () => {
   const [copied, setCopied] = useState(false);
 
+  const tildaCode = `<!-- Вставьте этот код в блок T123 (HTML-код) на Тильде -->
+<div id="timer-widget-container"></div>
+<script>
+(function() {
+  var iframe = document.createElement('iframe');
+  iframe.src = '${window.location.origin}';
+  iframe.style.width = '100%';
+  iframe.style.maxWidth = '450px';
+  iframe.style.height = '600px';
+  iframe.style.border = 'none';
+  iframe.style.borderRadius = '12px';
+  iframe.style.display = 'block';
+  iframe.style.margin = '0 auto';
+  iframe.setAttribute('frameborder', '0');
+  iframe.setAttribute('scrolling', 'no');
+  document.getElementById('timer-widget-container').appendChild(iframe);
+})();
+</script>`;
+
   const embedCode = `<iframe 
   src="${window.location.origin}" 
   width="400" 
-  height="500" 
+  height="600" 
   frameborder="0"
-  style="border: none; border-radius: 12px;"
+  scrolling="no"
+  style="border: none; border-radius: 12px; display: block; margin: 0 auto;"
 ></iframe>`;
 
+  const [activeTab, setActiveTab] = useState<'tilda' | 'iframe'>('tilda');
+  
   const handleCopy = () => {
-    navigator.clipboard.writeText(embedCode);
+    const code = activeTab === 'tilda' ? tildaCode : embedCode;
+    navigator.clipboard.writeText(code);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -39,22 +62,39 @@ const Install = () => {
               <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold shrink-0">
                 1
               </div>
-              <div className="space-y-2">
-                <h3 className="font-semibold text-lg">Скопируйте код</h3>
-                <p className="text-sm text-muted-foreground">
-                  Нажмите кнопку "Копировать" чтобы скопировать код виджета
-                </p>
+              <div className="space-y-3 flex-1">
+                <h3 className="font-semibold text-lg">Выберите платформу и скопируйте код</h3>
+                
+                <div className="flex gap-2 flex-wrap">
+                  <Button
+                    variant={activeTab === 'tilda' ? 'default' : 'outline'}
+                    onClick={() => setActiveTab('tilda')}
+                    className="gap-2"
+                  >
+                    <Icon name="Palette" size={16} />
+                    Тильда
+                  </Button>
+                  <Button
+                    variant={activeTab === 'iframe' ? 'default' : 'outline'}
+                    onClick={() => setActiveTab('iframe')}
+                    className="gap-2"
+                  >
+                    <Icon name="Code2" size={16} />
+                    Другие сайты
+                  </Button>
+                </div>
               </div>
             </div>
 
             <div className="relative">
-              <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
-                <code>{embedCode}</code>
+              <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-xs sm:text-sm max-h-80">
+                <code>{activeTab === 'tilda' ? tildaCode : embedCode}</code>
               </pre>
               <Button
                 onClick={handleCopy}
                 className="absolute top-3 right-3"
                 variant={copied ? "secondary" : "default"}
+                size="sm"
               >
                 <Icon name={copied ? "Check" : "Copy"} size={16} />
                 <span className="ml-2">{copied ? "Скопировано!" : "Копировать"}</span>
@@ -68,9 +108,20 @@ const Install = () => {
             </div>
             <div className="space-y-2">
               <h3 className="font-semibold text-lg">Вставьте на сайт</h3>
-              <p className="text-sm text-muted-foreground">
-                Вставьте скопированный код в любое место вашего сайта, где хотите отобразить таймер
-              </p>
+              {activeTab === 'tilda' ? (
+                <div className="text-sm text-muted-foreground space-y-2">
+                  <p>На Тильде:</p>
+                  <ol className="list-decimal list-inside space-y-1 ml-2">
+                    <li>Добавьте блок <code className="bg-gray-100 px-1.5 py-0.5 rounded text-xs">T123 (HTML-код)</code></li>
+                    <li>Вставьте скопированный код в этот блок</li>
+                    <li>Сохраните и опубликуйте страницу</li>
+                  </ol>
+                </div>
+              ) : (
+                <p className="text-sm text-muted-foreground">
+                  Вставьте скопированный код в HTML вашего сайта, где хотите отобразить таймер
+                </p>
+              )}
             </div>
           </div>
 
@@ -93,7 +144,9 @@ const Install = () => {
             <div className="space-y-1">
               <h4 className="font-semibold text-primary">Настройки виджета</h4>
               <p className="text-sm text-muted-foreground">
-                Вы можете изменить размеры виджета, изменив значения <code className="bg-white px-1 rounded">width</code> и <code className="bg-white px-1 rounded">height</code> в коде. Рекомендуемые размеры: ширина 350-450px, высота 450-550px.
+                {activeTab === 'tilda' 
+                  ? 'Код для Тильды автоматически адаптируется под размер блока. Виджет будет по центру и адаптивен на всех устройствах.'
+                  : 'Вы можете изменить размеры виджета, изменив значения width и height в коде. Рекомендуемые размеры: ширина 350-450px, высота 550-650px.'}
               </p>
             </div>
           </div>
