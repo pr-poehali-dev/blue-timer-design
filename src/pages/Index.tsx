@@ -35,8 +35,8 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-accent via-white to-accent flex items-center justify-center p-4">
       <div className="max-w-md w-full space-y-6">
         <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold text-primary">Уважаемый клиент!</h1>
-          <p className="text-sm text-muted-foreground">Ваша заявка принята</p>
+          <h1 className="text-3xl font-bold text-primary">Ваша заявка принята!</h1>
+          <p className="text-sm text-muted-foreground">С вами свяжутся наши специалисты с телефона <span className="font-semibold text-primary">+7 (495) 117-85-67</span></p>
         </div>
 
         <Card className="p-8 space-y-8">
