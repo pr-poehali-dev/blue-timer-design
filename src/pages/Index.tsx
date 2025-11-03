@@ -78,24 +78,6 @@ const Index = () => {
 
 
         </Card>
-
-        <Card className="p-4 sm:p-6 bg-primary/5 border-primary/20">
-          <div className="flex flex-col sm:flex-row items-start gap-3">
-            <Icon name="Code" size={24} className="text-primary shrink-0 mt-0.5 hidden sm:block" />
-            <div className="flex-1 w-full">
-              <h3 className="font-semibold text-primary mb-1 text-sm sm:text-base">Установите на свой сайт</h3>
-              <p className="text-xs sm:text-sm text-muted-foreground mb-3">
-                Добавьте этот таймер на свой сайт одной строкой кода
-              </p>
-              <Link to="/install" className="block">
-                <Button variant="default" className="gap-2 w-full sm:w-auto">
-                  <Icon name="Download" size={16} />
-                  Получить код
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </Card>
       </div>
     </div>
   );
