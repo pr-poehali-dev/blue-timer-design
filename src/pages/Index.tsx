@@ -102,12 +102,6 @@ const Index = () => {
                 <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-2">Елена Соколова</h2>
                 <p className="text-base sm:text-lg text-muted-foreground">Ваш личный менеджер</p>
               </div>
-              <div className="bg-green-50 border-2 border-green-500 p-4 mb-3">
-                <p className="text-sm text-green-700 font-semibold mb-1">Одобренная сумма</p>
-                <p className="text-3xl sm:text-4xl font-bold text-green-600 tabular-nums">
-                  {approvedAmount.toLocaleString('ru-RU')} ₽
-                </p>
-              </div>
               <p className="text-base sm:text-lg text-muted-foreground px-4">
                 Сейчас много заявок. Пожалуйста, ожидайте нашего ответа или напишите нам в чат
               </p>
