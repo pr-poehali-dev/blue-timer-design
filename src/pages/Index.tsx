@@ -125,6 +125,12 @@ const Index = () => {
             </div>
           )}
         </Card>
+        
+        <div className="text-center px-4 py-2">
+          <p className="text-sm sm:text-base text-muted-foreground font-medium">
+            Не обновляйте страницу, ожидайте решения
+          </p>
+        </div>
       </div>
     </div>
   );
