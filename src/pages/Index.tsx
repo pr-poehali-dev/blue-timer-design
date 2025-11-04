@@ -132,7 +132,7 @@ const Index = () => {
           )}
         </Card>
         
-        <div className="text-center px-4 py-1">
+        <div className="text-center px-4 pt-1">
           <p className="text-sm sm:text-base text-muted-foreground font-medium">
             Не обновляйте страницу, ожидайте решения
           </p>
