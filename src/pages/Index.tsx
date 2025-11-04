@@ -10,7 +10,9 @@ const Index = () => {
     const amounts = [15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000];
     return amounts[Math.floor(Math.random() * amounts.length)];
   });
+  const [displayAmount, setDisplayAmount] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const countingRef = useRef<NodeJS.Timeout | null>(null);
 
   const getStatusText = () => {
     if (timeLeft > 40) {
@@ -38,6 +40,33 @@ const Index = () => {
       }
     };
   }, []);
+
+  useEffect(() => {
+    if (timeLeft === 0) {
+      const duration = 2000;
+      const steps = 60;
+      const increment = approvedAmount / steps;
+      let current = 0;
+
+      countingRef.current = setInterval(() => {
+        current += increment;
+        if (current >= approvedAmount) {
+          setDisplayAmount(approvedAmount);
+          if (countingRef.current) {
+            clearInterval(countingRef.current);
+          }
+        } else {
+          setDisplayAmount(Math.floor(current));
+        }
+      }, duration / steps);
+
+      return () => {
+        if (countingRef.current) {
+          clearInterval(countingRef.current);
+        }
+      };
+    }
+  }, [timeLeft, approvedAmount]);
 
 
 
@@ -73,10 +102,10 @@ const Index = () => {
                 <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-2">Елена Соколова</h2>
                 <p className="text-base sm:text-lg text-muted-foreground">Ваш личный менеджер</p>
               </div>
-              <div className="bg-green-50 border-2 border-green-500 rounded-lg p-4 mb-3">
+              <div className="bg-green-50 border-2 border-green-500 rounded-lg p-4 mb-3 animate-in fade-in-0 zoom-in-95 duration-500">
                 <p className="text-sm text-green-700 font-semibold mb-1">Одобренная сумма</p>
-                <p className="text-3xl sm:text-4xl font-bold text-green-600">
-                  {approvedAmount.toLocaleString('ru-RU')} ₽
+                <p className="text-3xl sm:text-4xl font-bold text-green-600 tabular-nums">
+                  {displayAmount.toLocaleString('ru-RU')} ₽
                 </p>
               </div>
               <p className="text-base sm:text-lg text-muted-foreground px-4">
