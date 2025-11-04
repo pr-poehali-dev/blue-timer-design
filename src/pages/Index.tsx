@@ -6,6 +6,10 @@ import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [timeLeft, setTimeLeft] = useState(1 * 60);
+  const [approvedAmount] = useState(() => {
+    const amounts = [15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000];
+    return amounts[Math.floor(Math.random() * amounts.length)];
+  });
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const getStatusText = () => {
@@ -68,6 +72,12 @@ const Index = () => {
               <div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-2">Елена Соколова</h2>
                 <p className="text-base sm:text-lg text-muted-foreground">Ваш личный менеджер</p>
+              </div>
+              <div className="bg-green-50 border-2 border-green-500 rounded-lg p-4 mb-3">
+                <p className="text-sm text-green-700 font-semibold mb-1">Одобренная сумма</p>
+                <p className="text-3xl sm:text-4xl font-bold text-green-600">
+                  {approvedAmount.toLocaleString('ru-RU')} ₽
+                </p>
               </div>
               <p className="text-base sm:text-lg text-muted-foreground px-4">
                 Сейчас много заявок. Пожалуйста, ожидайте нашего ответа или напишите нам в чат
