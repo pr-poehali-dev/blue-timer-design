@@ -45,8 +45,8 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex items-center justify-center p-4 sm:p-6">
       <div className="max-w-md w-full space-y-2 sm:space-y-3">
         <div className="text-center space-y-1 px-2">
-          <h1 className="text-2xl sm:text-3xl font-bold text-primary leading-tight">Ваша заявка принята!</h1>
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">С вами свяжутся наши специалисты с телефона <a href="tel:+74951178567" className="font-semibold text-primary hover:underline whitespace-nowrap">+7 (495) 117-85-67</a></p>
+          <h1 className="text-3xl sm:text-4xl font-bold text-primary leading-tight">Ваша заявка принята!</h1>
+          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">С вами свяжутся наши специалисты с телефона <a href="tel:+74951178567" className="font-semibold text-primary hover:underline whitespace-nowrap">+7 (495) 117-85-67</a></p>
         </div>
 
         <Card className="p-3 sm:p-5 space-y-3 sm:space-y-4 shadow-xl border-blue-100">
@@ -60,10 +60,10 @@ const Index = () => {
                 />
               </div>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-primary mb-2">Елена Соколова</h2>
-                <p className="text-sm text-muted-foreground">Ваш личный менеджер</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-2">Елена Соколова</h2>
+                <p className="text-base sm:text-lg text-muted-foreground">Ваш личный менеджер</p>
               </div>
-              <p className="text-sm sm:text-base text-muted-foreground px-4">
+              <p className="text-base sm:text-lg text-muted-foreground px-4">
                 Сейчас много заявок. Пожалуйста, ожидайте нашего ответа или напишите нам в чат
               </p>
               <Button 
@@ -112,7 +112,7 @@ const Index = () => {
                   <div className="text-5xl sm:text-6xl font-bold text-primary">
                     {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
                   </div>
-                  <div className="text-xs sm:text-sm text-muted-foreground mt-3 font-medium">
+                  <div className="text-sm sm:text-base text-muted-foreground mt-3 font-medium">
                     {getStatusText()}
                   </div>
                   <div className="flex gap-1 justify-center mt-3">
