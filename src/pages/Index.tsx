@@ -8,6 +8,16 @@ const Index = () => {
   const [timeLeft, setTimeLeft] = useState(3 * 60);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  const getStatusText = () => {
+    if (timeLeft > 120) {
+      return 'Проверка данных...';
+    } else if (timeLeft > 60) {
+      return 'Проверка ФССП...';
+    } else {
+      return 'Подготовка предложения...';
+    }
+  };
+
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setTimeLeft((prev) => {
@@ -41,18 +51,25 @@ const Index = () => {
 
         <Card className="p-4 sm:p-8 space-y-6 sm:space-y-8 shadow-xl border-blue-100">
           {timeLeft === 0 ? (
-            <div className="text-center space-y-4 py-8">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Icon name="MessageCircle" size={32} className="text-primary" />
+            <div className="text-center space-y-6 py-8">
+              <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden mx-auto border-4 border-primary/20 shadow-lg">
+                <img 
+                  src="https://cdn.poehali.dev/projects/bd96fc19-344a-4302-a6c7-ec6bdee2a03d/files/d88b7043-1be8-4cf2-b389-e74ee3fb7302.jpg" 
+                  alt="Менеджер" 
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-primary">Сейчас много заявок</h2>
+              <div>
+                <h2 className="text-xl sm:text-2xl font-bold text-primary mb-2">Елена Соколова</h2>
+                <p className="text-sm text-muted-foreground">Ваш личный менеджер</p>
+              </div>
               <p className="text-sm sm:text-base text-muted-foreground px-4">
-                Пожалуйста, ожидайте нашего ответа или напишите нам в чат
+                Сейчас много заявок. Пожалуйста, ожидайте нашего ответа или напишите нам в чат
               </p>
               <Button 
                 asChild 
                 size="lg" 
-                className="mt-6"
+                className="mt-4"
               >
                 <a 
                   href="https://www.money-financei.ru/page68550277.html" 
@@ -95,8 +112,8 @@ const Index = () => {
                   <div className="text-5xl sm:text-6xl font-bold text-primary">
                     {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
                   </div>
-                  <div className="text-xs sm:text-sm text-muted-foreground mt-2">
-                    Ожидайте...
+                  <div className="text-xs sm:text-sm text-muted-foreground mt-3 font-medium">
+                    {getStatusText()}
                   </div>
                 </div>
               </div>
