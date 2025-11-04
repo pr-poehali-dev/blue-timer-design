@@ -5,13 +5,13 @@ import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
-  const [timeLeft, setTimeLeft] = useState(3 * 60);
+  const [timeLeft, setTimeLeft] = useState(1 * 60);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const getStatusText = () => {
-    if (timeLeft > 120) {
+    if (timeLeft > 40) {
       return 'Проверка данных...';
-    } else if (timeLeft > 60) {
+    } else if (timeLeft > 20) {
       return 'Проверка ФССП...';
     } else {
       return 'Подготовка предложения...';
@@ -39,7 +39,7 @@ const Index = () => {
 
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;
-  const progress = ((3 * 60 - timeLeft) / (3 * 60)) * 100;
+  const progress = ((1 * 60 - timeLeft) / (1 * 60)) * 100;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex items-center justify-center p-4 sm:p-6">
