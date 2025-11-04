@@ -42,7 +42,7 @@ const Index = () => {
   const progress = ((1 * 60 - timeLeft) / (1 * 60)) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex items-center justify-center p-4 sm:p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex items-start justify-center p-4 sm:p-6 pt-8 sm:pt-16">
       <div className="max-w-md w-full space-y-1 sm:space-y-2">
         <div className="text-center space-y-1 px-2">
           <h1 className="text-3xl sm:text-4xl font-bold text-primary leading-tight">Ваша заявка принята!</h1>
