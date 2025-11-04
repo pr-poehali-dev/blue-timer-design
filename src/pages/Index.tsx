@@ -32,14 +32,14 @@ const Index = () => {
   const progress = ((3 * 60 - timeLeft) / (3 * 60)) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-accent via-white to-accent flex items-center justify-center p-4 sm:p-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex items-center justify-center p-4 sm:p-6">
       <div className="max-w-md w-full space-y-4 sm:space-y-6">
         <div className="text-center space-y-2 px-2">
           <h1 className="text-2xl sm:text-3xl font-bold text-primary leading-tight">Ваша заявка принята!</h1>
           <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">С вами свяжутся наши специалисты с телефона <a href="tel:+74951178567" className="font-semibold text-primary hover:underline whitespace-nowrap">+7 (495) 117-85-67</a></p>
         </div>
 
-        <Card className="p-4 sm:p-8 space-y-6 sm:space-y-8">
+        <Card className="p-4 sm:p-8 space-y-6 sm:space-y-8 shadow-xl border-blue-100">
           {timeLeft === 0 ? (
             <div className="text-center space-y-4 py-8">
               <div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
