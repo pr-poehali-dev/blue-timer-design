@@ -43,15 +43,15 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex items-center justify-center p-4 sm:p-6">
-      <div className="max-w-md w-full space-y-3 sm:space-y-4">
+      <div className="max-w-md w-full space-y-2 sm:space-y-3">
         <div className="text-center space-y-1 px-2">
           <h1 className="text-2xl sm:text-3xl font-bold text-primary leading-tight">Ваша заявка принята!</h1>
           <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">С вами свяжутся наши специалисты с телефона <a href="tel:+74951178567" className="font-semibold text-primary hover:underline whitespace-nowrap">+7 (495) 117-85-67</a></p>
         </div>
 
-        <Card className="p-4 sm:p-6 space-y-4 sm:space-y-6 shadow-xl border-blue-100">
+        <Card className="p-3 sm:p-5 space-y-3 sm:space-y-4 shadow-xl border-blue-100">
           {timeLeft === 0 ? (
-            <div className="text-center space-y-4 py-4">
+            <div className="text-center space-y-3 py-3">
               <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden mx-auto border-4 border-primary/20 shadow-lg">
                 <img 
                   src="https://cdn.poehali.dev/projects/bd96fc19-344a-4302-a6c7-ec6bdee2a03d/files/d88b7043-1be8-4cf2-b389-e74ee3fb7302.jpg" 
