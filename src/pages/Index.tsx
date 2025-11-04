@@ -115,6 +115,11 @@ const Index = () => {
                   <div className="text-xs sm:text-sm text-muted-foreground mt-3 font-medium">
                     {getStatusText()}
                   </div>
+                  <div className="flex gap-1 justify-center mt-3">
+                    <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                    <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                    <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                  </div>
                 </div>
               </div>
             </div>
