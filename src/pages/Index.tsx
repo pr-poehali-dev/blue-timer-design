@@ -49,6 +49,21 @@ const Index = () => {
               <p className="text-sm sm:text-base text-muted-foreground px-4">
                 Пожалуйста, ожидайте нашего ответа или напишите нам в чат
               </p>
+              <Button 
+                asChild 
+                size="lg" 
+                className="mt-6"
+              >
+                <a 
+                  href="https://www.money-financei.ru/page68550277.html" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2"
+                >
+                  <Icon name="MessageCircle" size={20} />
+                  Написать в чат
+                </a>
+              </Button>
             </div>
           ) : (
             <div className="relative w-56 h-56 sm:w-64 sm:h-64 mx-auto">
