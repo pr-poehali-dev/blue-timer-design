@@ -79,13 +79,15 @@ const Index = () => {
       <div className="max-w-md w-full space-y-1 sm:space-y-2">
         <div className="text-center space-y-1 px-2">
           <h1 className="text-3xl sm:text-4xl font-bold text-primary leading-tight">Ваша заявка принята!</h1>
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed flex items-center justify-center gap-2 flex-wrap">
-            <span>С вами свяжутся наши специалисты с телефона</span>
-            <span className="inline-flex items-center gap-1">
-              <Icon name="Phone" size={16} className="text-primary" />
-              <a href="tel:+74951178567" className="font-semibold text-primary hover:underline whitespace-nowrap">+7 (495) 117-85-67</a>
-            </span>
-          </p>
+          {timeLeft === 0 && (
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed flex items-center justify-center gap-2 flex-wrap">
+              <span>С вами свяжутся наши специалисты с телефона</span>
+              <span className="inline-flex items-center gap-1">
+                <Icon name="Phone" size={16} className="text-primary" />
+                <a href="tel:+74951178567" className="font-semibold text-primary hover:underline whitespace-nowrap">+7 (495) 117-85-67</a>
+              </span>
+            </p>
+          )}
         </div>
 
         <Card className="p-3 sm:p-5 space-y-3 sm:space-y-4 shadow-xl border-blue-100">
