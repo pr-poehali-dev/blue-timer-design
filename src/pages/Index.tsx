@@ -91,6 +91,12 @@ const Index = () => {
             )}
           </div>
           
+          {timeLeft > 0 && (
+            <div className="text-sm sm:text-base text-muted-foreground mb-2 font-medium">
+              {getStatusText()}
+            </div>
+          )}
+          
           <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
             <div 
               className="bg-primary h-full transition-all duration-1000 ease-linear rounded-full"
@@ -133,44 +139,14 @@ const Index = () => {
               </Button>
             </div>
           ) : (
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto">
-              <svg className="w-full h-full transform -rotate-90" viewBox="0 0 256 256">
-                <circle
-                  cx="128"
-                  cy="128"
-                  r="110"
-                  stroke="currentColor"
-                  strokeWidth="12"
-                  fill="none"
-                  className="text-accent"
-                />
-                <circle
-                  cx="128"
-                  cy="128"
-                  r="110"
-                  stroke="currentColor"
-                  strokeWidth="12"
-                  fill="none"
-                  strokeDasharray={2 * Math.PI * 110}
-                  strokeDashoffset={2 * Math.PI * 110 * (1 - progress / 100)}
-                  className="text-primary transition-all duration-1000 ease-linear"
-                  strokeLinecap="round"
-                />
-              </svg>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center px-2">
-                  <div className="text-5xl sm:text-6xl font-bold text-primary">
-                    {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
-                  </div>
-                  <div className="text-sm sm:text-base text-muted-foreground mt-3 font-medium">
-                    {getStatusText()}
-                  </div>
-                  <div className="flex gap-1 justify-center mt-3">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                    <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                    <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
-                  </div>
-                </div>
+            <div className="text-center space-y-4 py-3">
+              <div className="text-5xl sm:text-6xl font-bold text-primary">
+                {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
+              </div>
+              <div className="flex gap-1 justify-center">
+                <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
               </div>
             </div>
           )}
