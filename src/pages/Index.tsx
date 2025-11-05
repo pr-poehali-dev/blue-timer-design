@@ -167,11 +167,13 @@ const Index = () => {
           )}
         </Card>
         
-        <div className="text-center px-4 pt-1">
-          <p className="text-sm sm:text-base text-muted-foreground font-medium">
-            Не обновляйте страницу, ожидайте решения
-          </p>
-        </div>
+        {timeLeft > 0 && (
+          <div className="text-center px-4 pt-1">
+            <p className="text-sm sm:text-base text-muted-foreground font-medium">
+              Не обновляйте страницу, ожидайте решения
+            </p>
+          </div>
+        )}
 
         {timeLeft > 0 && (
           <Card className="bg-gradient-to-r from-red-500 to-red-600 border-red-600 p-4 sm:p-6 shadow-xl mt-4">
