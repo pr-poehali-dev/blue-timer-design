@@ -79,7 +79,9 @@ const Index = () => {
       <div className="max-w-md w-full space-y-1 sm:space-y-2">
         <div className="text-center space-y-3 px-2">
           <div className="space-y-1">
-            <h1 className="text-3xl sm:text-4xl font-bold text-primary leading-tight">Ваша заявка уже обрабатывается</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold text-primary leading-tight">
+              {timeLeft === 0 ? 'Ваша заявка уже в работе!' : 'Ваша заявка уже обрабатывается'}
+            </h1>
             {timeLeft === 0 && (
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed flex items-center justify-center gap-2 flex-wrap">
                 <span>С вами свяжутся наши специалисты с телефона</span>
