@@ -99,7 +99,7 @@ const Index = () => {
       <div className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-64 h-64 sm:w-96 sm:h-96 bg-purple-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
       
       <div className="relative flex-1 flex items-stretch justify-center p-3 sm:p-6 overflow-y-auto">
-        <div className="w-full max-w-xl flex flex-col justify-between py-4 space-y-4 sm:space-y-6">
+        <div className="w-full max-w-xl flex flex-col justify-start py-4 space-y-3 sm:space-y-6">
           
           <div className="text-center space-y-3 sm:space-y-4 px-2 animate-in fade-in slide-in-from-top duration-700">
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg text-xs sm:text-sm">
@@ -149,6 +149,15 @@ const Index = () => {
                   <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                   <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-purple-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
                   <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                </div>
+              </div>
+              
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 text-amber-700">
+                  <Icon name="AlertCircle" size={16} className="flex-shrink-0" />
+                  <p className="text-xs sm:text-sm font-medium">
+                    Не обновляйте страницу
+                  </p>
                 </div>
               </div>
             </Card>
@@ -202,17 +211,6 @@ const Index = () => {
                 </Button>
               </div>
             </Card>
-          )}
-
-          {timeLeft > 0 && (
-            <div className="text-center px-2 animate-in fade-in slide-in-from-bottom duration-700">
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-amber-50 border-2 border-amber-200 px-4 sm:px-6 py-2 sm:py-3 rounded-full">
-                <Icon name="AlertCircle" size={16} className="text-amber-600 sm:w-5 sm:h-5 flex-shrink-0" />
-                <p className="text-xs sm:text-base text-amber-900 font-semibold">
-                  Не обновляйте страницу
-                </p>
-              </div>
-            </div>
           )}
 
           {timeLeft > 0 && (
