@@ -98,10 +98,10 @@ const Index = () => {
       <div className="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 h-48 sm:w-72 sm:h-72 bg-blue-400/20 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-64 h-64 sm:w-96 sm:h-96 bg-purple-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
       
-      <div className="relative flex-1 flex items-stretch justify-center p-3 sm:p-6 overflow-y-auto">
-        <div className="w-full max-w-xl flex flex-col justify-start py-4 space-y-3 sm:space-y-6">
+      <div className="relative flex-1 flex items-stretch justify-center p-2 sm:p-6 overflow-y-auto">
+        <div className="w-full max-w-xl flex flex-col justify-start py-2 sm:py-4 space-y-2 sm:space-y-6">
           
-          <div className="text-center space-y-3 sm:space-y-4 px-2 animate-in fade-in slide-in-from-top duration-700">
+          <div className="text-center space-y-2 sm:space-y-4 px-2 animate-in fade-in slide-in-from-top duration-700">
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg text-xs sm:text-sm">
               <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full animate-pulse" />
               <span className="font-semibold text-gray-700">Система работает</span>
@@ -164,11 +164,11 @@ const Index = () => {
           )}
 
           {timeLeft === 0 && (
-            <Card className="bg-white/90 backdrop-blur-xl border-0 shadow-2xl p-5 sm:p-8 animate-in fade-in zoom-in duration-700">
-              <div className="text-center space-y-4 sm:space-y-6">
+            <Card className="bg-white/90 backdrop-blur-xl border-0 shadow-2xl p-4 sm:p-8 animate-in fade-in zoom-in duration-700">
+              <div className="text-center space-y-3 sm:space-y-6">
                 <div className="relative inline-block">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full blur-2xl opacity-50 animate-pulse" />
-                  <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full overflow-hidden mx-auto border-4 border-white shadow-2xl">
+                  <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full overflow-hidden mx-auto border-4 border-white shadow-2xl">
                     <img 
                       src="https://cdn.poehali.dev/projects/bd96fc19-344a-4302-a6c7-ec6bdee2a03d/files/16d0858b-a93a-4be0-b086-4ced599e8fc1.jpg" 
                       alt="Менеджер" 
