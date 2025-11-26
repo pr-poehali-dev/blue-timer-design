@@ -82,7 +82,7 @@ const Index = () => {
   const progress = ((1 * 60 - timeLeft) / (1 * 60)) * 100;
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen h-screen relative overflow-hidden flex flex-col">
       <div 
         className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"
         style={{
@@ -95,92 +95,92 @@ const Index = () => {
       
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 animate-gradient" />
       
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 h-48 sm:w-72 sm:h-72 bg-blue-400/20 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-64 h-64 sm:w-96 sm:h-96 bg-purple-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
       
-      <div className="relative min-h-screen flex items-center justify-center p-4 sm:p-6">
-        <div className="max-w-xl w-full space-y-6">
+      <div className="relative flex-1 flex items-stretch justify-center p-3 sm:p-6 overflow-y-auto">
+        <div className="w-full max-w-xl flex flex-col justify-between py-4 space-y-4 sm:space-y-6">
           
-          <div className="text-center space-y-4 px-2 animate-in fade-in slide-in-from-top duration-700">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-sm font-semibold text-gray-700">Система работает</span>
+          <div className="text-center space-y-3 sm:space-y-4 px-2 animate-in fade-in slide-in-from-top duration-700">
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg text-xs sm:text-sm">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full animate-pulse" />
+              <span className="font-semibold text-gray-700">Система работает</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent leading-tight animate-gradient">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent leading-tight animate-gradient px-2">
               {timeLeft === 0 ? 'Ваша заявка уже в работе!' : 'Ваша заявка уже обрабатывается'}
             </h1>
             
             {timeLeft === 0 && (
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed flex items-center justify-center gap-2 flex-wrap animate-in fade-in slide-in-from-bottom duration-500">
-                <span>С вами свяжутся наши специалисты с телефона</span>
-                <span className="inline-flex items-center gap-1 bg-blue-50 px-3 py-1 rounded-full">
-                  <Icon name="Phone" size={16} className="text-blue-600" />
-                  <a href="tel:+74951178567" className="font-semibold text-blue-600 hover:text-blue-700 transition-colors whitespace-nowrap">+7 (495) 117-85-67</a>
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed flex items-center justify-center gap-2 flex-wrap animate-in fade-in slide-in-from-bottom duration-500 px-2">
+                <span className="text-center">С вами свяжутся наши специалисты</span>
+                <span className="inline-flex items-center gap-1 bg-blue-50 px-2 sm:px-3 py-1 rounded-full">
+                  <Icon name="Phone" size={14} className="text-blue-600 sm:w-4 sm:h-4" />
+                  <a href="tel:+74951178567" className="font-semibold text-blue-600 hover:text-blue-700 transition-colors text-sm sm:text-base">+7 (495) 117-85-67</a>
                 </span>
               </p>
             )}
           </div>
 
           {timeLeft > 0 && (
-            <Card className="bg-white/90 backdrop-blur-xl border-0 shadow-2xl p-6 animate-in fade-in zoom-in duration-500">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center animate-pulse-glow">
-                  <Icon name={getStatusIcon()} size={24} className="text-white" />
+            <Card className="bg-white/90 backdrop-blur-xl border-0 shadow-2xl p-4 sm:p-6 animate-in fade-in zoom-in duration-500">
+              <div className="flex items-center gap-3 sm:gap-4 mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center animate-pulse-glow flex-shrink-0">
+                  <Icon name={getStatusIcon()} size={20} className="text-white sm:w-6 sm:h-6" />
                 </div>
-                <div className="flex-1">
-                  <div className="text-lg font-semibold text-gray-900">{getStatusText()}</div>
-                  <div className="text-sm text-gray-500">Процесс займет около минуты</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-base sm:text-lg font-semibold text-gray-900">{getStatusText()}</div>
+                  <div className="text-xs sm:text-sm text-gray-500">Процесс займет около минуты</div>
                 </div>
               </div>
               
-              <div className="relative w-full bg-gray-200 rounded-full h-3 overflow-hidden shadow-inner">
+              <div className="relative w-full bg-gray-200 rounded-full h-2.5 sm:h-3 overflow-hidden shadow-inner">
                 <div 
                   className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 animate-gradient transition-all duration-1000 ease-out rounded-full"
                   style={{ width: `${progress}%` }}
                 />
               </div>
               
-              <div className="mt-6 text-center">
-                <div className="text-6xl sm:text-7xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <div className="mt-4 sm:mt-6 text-center">
+                <div className="text-5xl sm:text-6xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
                 </div>
-                <div className="flex gap-2 justify-center mt-4">
-                  <div className="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                  <div className="w-3 h-3 bg-purple-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                  <div className="w-3 h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                <div className="flex gap-1.5 sm:gap-2 justify-center mt-3 sm:mt-4">
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-purple-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                 </div>
               </div>
             </Card>
           )}
 
           {timeLeft === 0 && (
-            <Card className="bg-white/90 backdrop-blur-xl border-0 shadow-2xl p-8 animate-in fade-in zoom-in duration-700">
-              <div className="text-center space-y-6">
+            <Card className="bg-white/90 backdrop-blur-xl border-0 shadow-2xl p-5 sm:p-8 animate-in fade-in zoom-in duration-700">
+              <div className="text-center space-y-4 sm:space-y-6">
                 <div className="relative inline-block">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full blur-2xl opacity-50 animate-pulse" />
-                  <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden mx-auto border-4 border-white shadow-2xl">
+                  <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full overflow-hidden mx-auto border-4 border-white shadow-2xl">
                     <img 
                       src="https://cdn.poehali.dev/projects/bd96fc19-344a-4302-a6c7-ec6bdee2a03d/files/16d0858b-a93a-4be0-b086-4ced599e8fc1.jpg" 
                       alt="Менеджер" 
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-green-500 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg flex items-center gap-1">
-                    <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                  <div className="absolute -bottom-1 sm:-bottom-2 left-1/2 -translate-x-1/2 bg-green-500 text-white px-3 sm:px-4 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-semibold shadow-lg flex items-center gap-1">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse" />
                     Онлайн
                   </div>
                 </div>
                 
                 <div>
-                  <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-1 sm:mb-2">
                     Елена Соколова
                   </h2>
-                  <p className="text-lg text-gray-600 font-medium">Ваш личный менеджер</p>
+                  <p className="text-base sm:text-lg text-gray-600 font-medium">Ваш личный менеджер</p>
                 </div>
                 
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6">
-                  <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl sm:rounded-2xl p-4 sm:p-6">
+                  <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
                     Сейчас много заявок. Пожалуйста, ожидайте нашего ответа или напишите нам в чат для более быстрой связи
                   </p>
                 </div>
@@ -188,15 +188,15 @@ const Index = () => {
                 <Button 
                   asChild 
                   size="lg" 
-                  className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                 >
                   <a 
                     href="https://www.money-financei.ru/page68550277.html" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold"
+                    className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold"
                   >
-                    <Icon name="MessageCircle" size={24} />
+                    <Icon name="MessageCircle" size={20} className="sm:w-6 sm:h-6" />
                     Написать в чат
                   </a>
                 </Button>
@@ -205,11 +205,11 @@ const Index = () => {
           )}
 
           {timeLeft > 0 && (
-            <div className="text-center px-4 animate-in fade-in slide-in-from-bottom duration-700">
-              <div className="inline-flex items-center gap-2 bg-amber-50 border-2 border-amber-200 px-6 py-3 rounded-full">
-                <Icon name="AlertCircle" size={20} className="text-amber-600" />
-                <p className="text-base text-amber-900 font-semibold">
-                  Не обновляйте страницу, ожидайте решения
+            <div className="text-center px-2 animate-in fade-in slide-in-from-bottom duration-700">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-amber-50 border-2 border-amber-200 px-4 sm:px-6 py-2 sm:py-3 rounded-full">
+                <Icon name="AlertCircle" size={16} className="text-amber-600 sm:w-5 sm:h-5 flex-shrink-0" />
+                <p className="text-xs sm:text-base text-amber-900 font-semibold">
+                  Не обновляйте страницу
                 </p>
               </div>
             </div>
@@ -217,28 +217,28 @@ const Index = () => {
 
           {timeLeft > 0 && (
             <Card className="bg-gradient-to-br from-red-500 via-red-600 to-pink-600 border-0 shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-700 animate-gradient">
-              <div className="relative p-8">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-                <div className="relative text-center space-y-4">
-                  <div className="inline-flex items-center gap-2 bg-yellow-400 text-red-900 px-6 py-2 rounded-full font-bold text-base uppercase shadow-lg animate-pulse">
-                    <Icon name="Sparkles" size={20} />
+              <div className="relative p-5 sm:p-8">
+                <div className="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 bg-white/10 rounded-full blur-3xl" />
+                <div className="relative text-center space-y-3 sm:space-y-4">
+                  <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-yellow-400 text-red-900 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-bold text-sm sm:text-base uppercase shadow-lg animate-pulse">
+                    <Icon name="Sparkles" size={16} className="sm:w-5 sm:h-5" />
                     Акция
                   </div>
-                  <h3 className="text-4xl sm:text-5xl font-extrabold text-white drop-shadow-lg">
+                  <h3 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">
                     Займ под 0%
                   </h3>
-                  <p className="text-white/95 text-lg font-medium">
+                  <p className="text-white/95 text-base sm:text-lg font-medium">
                     Специальное предложение для новых клиентов
                   </p>
-                  <div className="flex items-center justify-center gap-6 pt-4">
+                  <div className="flex items-center justify-center gap-4 sm:gap-6 pt-2 sm:pt-4">
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-white">0%</div>
-                      <div className="text-sm text-white/80">Ставка</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-white">0%</div>
+                      <div className="text-xs sm:text-sm text-white/80">Ставка</div>
                     </div>
-                    <div className="w-px h-12 bg-white/30" />
+                    <div className="w-px h-10 sm:h-12 bg-white/30" />
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-white">30 дней</div>
-                      <div className="text-sm text-white/80">Без процентов</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-white">30 дней</div>
+                      <div className="text-xs sm:text-sm text-white/80">Без процентов</div>
                     </div>
                   </div>
                 </div>
